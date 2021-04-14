@@ -18,7 +18,7 @@ export interface LoadTableAttributes {
 const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
   const [currentData, setCurrentData] = useState<ITableProps['data']>([]);
   const {
-    data = [],
+    data,
     bordered = false,
     requestFunc,
     emptyText,
@@ -72,7 +72,7 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
       },
       paginationData,
     );
-  }, []);
+  }, [data]);
 
   useImperativeHandle(ref, () => ({
     reloadDataSource: () => {

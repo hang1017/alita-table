@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## Nomal
+## Normal
 
 <code src="../demos/normal.tsx" />

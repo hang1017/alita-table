@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Table from '@alitajs/table';
 
 export default () => {

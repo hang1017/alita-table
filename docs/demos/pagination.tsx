@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Table from '@alitajs/table';
 
 const dataSource = Array.from(new Array(40)).map((_val, i) => ({
