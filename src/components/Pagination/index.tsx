@@ -21,7 +21,6 @@ const PaginationPage: FC<PaginationPageProps> = props => {
         prefixCls="alita-pagination"
         {...paginationData}
         onChange={onChange}
-        pageSize={5}
       />
     </div>
   );

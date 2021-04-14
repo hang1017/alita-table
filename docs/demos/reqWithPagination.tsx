@@ -27,9 +27,12 @@ export default () => {
     },
   ];
 
-  async function query(req): Promise<any> {
+  async function query(req: any): Promise<any> {
     return new Promise(resolve => {
-      request('/api/LargeDataTable').then((res: any) => {
+      request('/api/queryDataWithPagination', {
+        method: 'post',
+        data: req,
+      }).then((res: any) => {
         console.log(res);
         /**
          * res 的数据接口：
@@ -52,7 +55,7 @@ export default () => {
         columns={columns}
         rowKey="key"
         showPagination
-        pageSize={7}
+        showRequestAllData={false}
       />
     </div>
   );

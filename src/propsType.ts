@@ -6,4 +6,5 @@ export interface ITableProps {
   ref?: any;
   showPagination: boolean;
   showRequestAllData?: boolean;
+  pageSize?: number;
 }

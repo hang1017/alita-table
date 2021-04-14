@@ -16,10 +16,6 @@ export interface LoadTableAttributes {
 }
 
 const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
-  const [paginationData, setPaginationData] = useState({
-    current: 1,
-    total: 0,
-  });
   const [currentData, setCurrentData] = useState<ITableProps['data']>([]);
   const {
     data = [],
@@ -28,57 +24,92 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
     emptyText,
     showPagination = false,
     showRequestAllData = true,
+    pageSize = 5,
     ...reset
   } = props;
+  const [paginationData, setPaginationData] = useState({
+    current: 1,
+    pageSize,
+    total: 0,
+  });
 
-  async function noRequestFunc(): Promise<any> {
-    return new Promise(() => {});
+  async function asyncFn(abc: any): Promise<any> {
+    return new Promise(resolve => {
+      const { current, pageSize } = abc;
+      if (requestFunc)
+        requestFunc({
+          current,
+          pageSize,
+        }).then((res: any) => {
+          resolve(res);
+        });
+    });
   }
-  const TableReqFun = useRequest(requestFunc || noRequestFunc, {
+
+  const TableReqFun = useRequest(asyncFn, {
     manual: true,
   });
 
-  const resetCurrentData = (list: ITableProps['data'], paData: any) => {
-    if (!list) return;
-    setCurrentData(list.slice(0, 5));
-
+  const resetCurrentData = (reqData: any, paData: any) => {
+    if (!reqData.data) return;
+    setCurrentData(reqData.data.slice(0, paginationData?.pageSize));
     setPaginationData({
       ...paData,
-      total: list?.length,
+      total: reqData.total || reqData.data?.length,
     });
   };
 
   useEffect(() => {
-    if (requestFunc) TableReqFun.run({});
+    if (requestFunc) TableReqFun.run(paginationData);
     if (!data) return;
     if (!showPagination) {
       setCurrentData(data);
       return;
     }
-    resetCurrentData(data, paginationData);
+    resetCurrentData(
+      {
+        data,
+      },
+      paginationData,
+    );
   }, []);
 
   useImperativeHandle(ref, () => ({
-    reloadDataSource: TableReqFun?.run,
+    reloadDataSource: () => {
+      if (requestFunc) TableReqFun.run(paginationData);
+    },
   }));
 
   useEffect(() => {
     if (!!TableReqFun?.data?.data && showPagination) {
-      resetCurrentData(TableReqFun?.data?.data, paginationData);
+      resetCurrentData(TableReqFun?.data, paginationData);
     }
-  }, [TableReqFun?.data?.data]);
+  }, [TableReqFun?.data]);
 
   const pageOnChange = (current: number, size: number) => {
     let totalData = data;
     if (requestFunc) totalData = TableReqFun?.data?.data;
-    const rightCurrent = current - 1;
-    setCurrentData(
-      totalData.slice(rightCurrent * size, rightCurrent * size + 5),
-    );
-    setPaginationData({
-      ...paginationData,
-      current,
-    });
+    if (showRequestAllData) {
+      const rightCurrent = current - 1;
+      setCurrentData(
+        totalData.slice(
+          rightCurrent * size,
+          rightCurrent * size + paginationData?.pageSize,
+        ),
+      );
+      setPaginationData({
+        ...paginationData,
+        current,
+      });
+    } else {
+      if (requestFunc) {
+        TableReqFun.run({ ...paginationData, current });
+        setPaginationData({
+          ...paginationData,
+          current,
+        });
+      }
+    }
   };
 
   return (

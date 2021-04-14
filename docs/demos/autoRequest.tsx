@@ -27,9 +27,15 @@ export default () => {
     },
   ];
 
-  async function query(): Promise<any> {
+  async function query(req): Promise<any> {
     return new Promise(resolve => {
       request('/api/lessDataTable').then((res: any) => {
+        console.log(res);
+        /**
+         * res 的数据接口：
+         * total: number
+         * data: Array
+         */
         resolve(res);
       });
     });
