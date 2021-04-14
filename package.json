@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@ahooksjs/use-request": "^2.8.4",
-    "antd-mobile": "^2.3.4",
     "classnames": "^2.3.1",
     "dumi-theme-mobile": "^1.0.12",
     "rc-pagination": "^3.1.6",
