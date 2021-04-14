@@ -9,4 +9,4 @@ nav:
 
 ## Ellipsis
 
-<code src="./demos/ellipsis.tsx" />
+<code src="../demos/ellipsis.tsx" />

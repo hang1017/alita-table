@@ -9,4 +9,4 @@ nav:
 
 ## HeaderAndFooter
 
-<code src="./demos/headerAndFooter.tsx" />
+<code src="../demos/headerAndFooter.tsx" />

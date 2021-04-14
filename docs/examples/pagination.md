@@ -1,5 +1,5 @@
 ---
-title: 自动请求
+title: 分页
 group:
   title: 示例
 nav:
@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## autoRequest
+## Pagination
 
-<code src="./demos/autoRequest.tsx" />
+<code src="../demos/pagination.tsx" />

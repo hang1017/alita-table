@@ -9,4 +9,4 @@ nav:
 
 ## reqWithPagination
 
-<code src="./demos/reqWithPagination.tsx" />
+<code src="../demos/reqWithPagination.tsx" />

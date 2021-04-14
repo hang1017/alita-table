@@ -9,4 +9,4 @@ nav:
 
 ## Nomal
 
-<code src="./demos/normal.tsx" />
+<code src="../demos/normal.tsx" />

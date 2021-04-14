@@ -9,4 +9,4 @@ nav:
 
 ## autoReqPagination
 
-<code src="./demos/autoReqPagination.tsx" />
+<code src="../demos/autoReqPagination.tsx" />

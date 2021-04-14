@@ -9,4 +9,4 @@ nav:
 
 ## ScrollAndFix
 
-<code src="./demos/scrollAndFix.tsx" />
+<code src="../demos/scrollAndFix.tsx" />

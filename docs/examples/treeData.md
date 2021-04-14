@@ -9,4 +9,4 @@ nav:
 
 ## TreeData
 
-<code src="./demos/treeData.tsx" />
+<code src="../demos/treeData.tsx" />

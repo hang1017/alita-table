@@ -1,5 +1,5 @@
 ---
-title: 分页
+title: 无数据
 group:
   title: 示例
 nav:
@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## Pagination
+## NoData
 
-<code src="./demos/pagination.tsx" />
+<code src="../demos/noData.tsx" />

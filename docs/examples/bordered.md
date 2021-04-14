@@ -9,4 +9,4 @@ nav:
 
 ## Bordered
 
-<code src="./demos/bordered.tsx" />
+<code src="../demos/bordered.tsx" />
