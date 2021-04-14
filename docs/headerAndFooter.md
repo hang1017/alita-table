@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## Nomal
+## HeaderAndFooter
 
 <code src="./demos/headerAndFooter.tsx" />

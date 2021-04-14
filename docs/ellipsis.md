@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## Nomal
+## Ellipsis
 
 <code src="./demos/ellipsis.tsx" />

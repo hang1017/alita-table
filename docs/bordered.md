@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## TreeData
+## Bordered
 
 <code src="./demos/bordered.tsx" />

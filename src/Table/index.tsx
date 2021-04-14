@@ -76,7 +76,14 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     reloadDataSource: () => {
-      if (requestFunc) TableReqFun.run(paginationData);
+      if (requestFunc) {
+        const newPaginationData = { ...paginationData };
+        if (showRequestAllData) {
+          newPaginationData.current = 1;
+        }
+        TableReqFun.run(newPaginationData);
+        setPaginationData(newPaginationData);
+      }
     },
   }));
 

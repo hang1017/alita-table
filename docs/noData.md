@@ -7,6 +7,6 @@ nav:
   path: /components
 ---
 
-## Nomal
+## NoData
 
 <code src="./demos/noData.tsx" />
