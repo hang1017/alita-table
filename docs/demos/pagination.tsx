@@ -1,9 +1,14 @@
 import React, { FC } from 'react';
 import Table from '@alitajs/table';
 
-export default () => {
-  const dataSource = [];
+const dataSource = Array.from(new Array(40)).map((_val, i) => ({
+  key: i,
+  name: `小小${i}`,
+  age: 32,
+  address: '南京江宁南京江宁南京江宁南京江宁南京江宁南京江宁',
+}));
 
+export default () => {
   const columns = [
     {
       title: '姓名',
@@ -28,11 +33,6 @@ export default () => {
   ];
 
   return (
-    <Table
-      data={dataSource}
-      columns={columns}
-      rowKey="key"
-      emptyText={() => <h1>No No No!</h1>}
-    />
+    <Table data={dataSource} columns={columns} rowKey="key" showPagination />
   );
 };

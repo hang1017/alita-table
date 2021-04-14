@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Table } from '@alitajs/table';
+import Table from '@alitajs/table';
 
 export default () => {
   const dataSource = Array.from(new Array(6)).map((_val, i) => ({
