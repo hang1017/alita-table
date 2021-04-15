@@ -8,3 +8,15 @@ export interface ITableProps {
   showRequestAllData?: boolean;
   pageSize?: number;
 }
+
+export interface TableColumnsProps {
+  title: string;
+  dataIndex: string | number;
+  key: string | number;
+  width?: string | number;
+  align?: 'left' | 'right' | 'center';
+}
+
+export interface TableHeadProps {
+  data: TableColumnsProps[];
+}

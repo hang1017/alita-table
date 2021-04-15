@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import Table from 'rc-table';
 import useRequest from '@ahooksjs/use-request';
-import { Pagination } from '../components';
+import { Pagination, TableBlock } from '../components';
 import { ITableProps } from '../propsType';
 import './index.less';
 
@@ -121,7 +121,7 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
 
   return (
     <div className={bordered ? 'alita-table-bordered' : ''}>
-      <Table
+      <TableBlock
         data={
           currentData && currentData.length
             ? currentData

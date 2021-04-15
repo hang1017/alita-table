@@ -17,6 +17,10 @@ export default () => {
       key: 'name',
       width: '20%',
       align: 'center',
+      styles: {
+        backgroundColor: 'red',
+        color: 'green',
+      },
     },
     {
       title: '年龄',
