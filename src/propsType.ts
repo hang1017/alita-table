@@ -7,4 +7,5 @@ export interface ITableProps {
   showPagination: boolean;
   showRequestAllData?: boolean;
   pageSize?: number;
+  oddAndEven?: boolean;
 }

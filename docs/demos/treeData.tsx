@@ -6,26 +6,26 @@ export default () => {
     key: i,
     name: `小小${i}`,
     age: 32,
-    address: '南京江宁南京江宁南京江宁南京江宁南京江宁南京江宁',
+    address: '南京江宁南京江宁',
   })) as any[];
 
   dataSource.unshift({
     key: 999,
     name: `小小${999}`,
     age: 32,
-    address: '南京江宁南京江宁南京江宁南京江宁南京江宁南京江宁',
+    address: '南京江宁南京江宁',
     children: [
       {
         key: 11,
         name: `小小999-1`,
         age: 11,
-        address: '南京江宁南京江宁南京江宁南京江宁南京江宁南京江宁',
+        address: '南京江宁南京江宁',
         children: [
           {
             key: 112,
             name: `小小999-12`,
             age: 112,
-            address: '南京江宁南京江宁南京江宁南京江宁南京江宁南京江宁',
+            address: '南京江宁南京江宁',
           },
         ],
       },
@@ -33,7 +33,7 @@ export default () => {
         key: 12,
         name: `小小999-2`,
         age: 12,
-        address: '南京江宁南京江宁南京江宁南京江宁南京江宁南京江宁',
+        address: '南京江宁南京江宁',
       },
     ],
   });

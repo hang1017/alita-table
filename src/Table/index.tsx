@@ -6,6 +6,7 @@ import React, {
   useEffect,
 } from 'react';
 import Table from 'rc-table';
+import classnames from 'classnames';
 import useRequest from '@ahooksjs/use-request';
 import { Pagination } from '../components';
 import { ITableProps } from '../propsType';
@@ -14,6 +15,8 @@ import './index.less';
 export interface LoadTableAttributes {
   reloadDataSource: () => void;
 }
+
+const prefixCls = 'alita-table';
 
 const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
   const [currentData, setCurrentData] = useState<ITableProps['data']>([]);
@@ -25,6 +28,7 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
     showPagination = false,
     showRequestAllData = true,
     pageSize = 5,
+    oddAndEven = false,
     ...reset
   } = props;
   const [paginationData, setPaginationData] = useState({
@@ -120,7 +124,12 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
   };
 
   return (
-    <div className={bordered ? 'alita-table-bordered' : ''}>
+    <div
+      className={classnames({
+        [`${prefixCls}-bordered`]: bordered,
+        [`${prefixCls}-row-odd-even`]: oddAndEven,
+      })}
+    >
       <Table
         data={
           currentData && currentData.length
@@ -128,7 +137,7 @@ const TablePage: FC<ITableProps> = forwardRef((props, ref) => {
             : TableReqFun?.data?.data
         }
         {...reset}
-        prefixCls="alita-table"
+        prefixCls={prefixCls}
         emptyText={
           TableReqFun && TableReqFun?.loading ? '数据加载中...' : emptyText
         }
